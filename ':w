@@ -133,9 +133,12 @@ const fi = (function() {
       for(const el of array) {
         let isUniq = true
         if (!!callback) {
+          console.log("AM I HERE")
           for(const jel of callbackArray) {
             if (jel === callback(el)) { 
               isUniq = false
+            } else {
+              callbackArray.push(callback(el))
             }
           };
         } else {
@@ -144,36 +147,14 @@ const fi = (function() {
           };
         }
         if (isUniq) { newArr.push(el) }
-        if (isUniq && !!callback) { callbackArray.push(callback(el)) }
       };
       return newArr
     },
 
-    keys: function(object) {
-      let keys = []
-      for(const el in object) {
-        keys.push(el) 
-      };
-      return keys;
+    functions: function() {
+
     },
 
-    values: function(object) {
-      let vals = []
-      for(const el in object) {
-        vals.push(object[el]) 
-      };
-      return vals;
-    },
-
-    functions: function(object) {
-      let funcs = []
-      for(const el in object) {
-        console.log(typeof el)
-        if (typeof object[el] === 'function')
-          funcs.push(el)
-      };
-      return funcs
-    },
 
   }
 })()
