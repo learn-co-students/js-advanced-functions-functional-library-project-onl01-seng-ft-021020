@@ -155,24 +155,10 @@ const fi = (function() {
         keys.push(el) 
       };
       return keys;
-    },
+    }
 
-    values: function(object) {
-      let vals = []
-      for(const el in object) {
-        vals.push(object[el]) 
-      };
-      return vals;
-    },
+    functions: function() {
 
-    functions: function(object) {
-      let funcs = []
-      for(const el in object) {
-        console.log(typeof el)
-        if (typeof object[el] === 'function')
-          funcs.push(el)
-      };
-      return funcs
     },
 
   }
